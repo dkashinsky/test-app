@@ -1,5 +1,5 @@
-<div class="user-list-component">
-  <ul *ngIf="usersResponse" class="user-list">
+<div class="user-list-component" *ngIf="usersResponse">
+  <ul class="user-list">
     <li *ngFor="let user of usersResponse.data" class="user-list-item">
       <a [routerLink]="['/user', user.id]">
         <span class="user-name">{{user.first_name }} {{user.last_name}}</span>
@@ -7,25 +7,12 @@
       </a>
     </li>
   </ul>
+  <div class="paging">
+    <span>Pages:</span>
+    <span class="paging-pages">
+      <button *ngFor="let page of pages(usersResponse.total_pages)"
+              [class.isActive]="page == usersResponse.page"
+              (click)="loadData(page)">{{page}}</button>
+    </span>
+  </div>
 </div>
-
-
-
-<fieldset *ngIf="usersResponse">
-  <legend>Pagination</legend>
-  
-  <div class="form-group">
-    <ul>
-      <li *ngFor="let page of pages">
-        <a (click)="loadData(page)">{{page}}</a>
-      </li>
-    </ul>
-  </div>
-
-  <div class="form-group">
-    <div>Current Page: {{usersResponse.page}}</div>
-    <div>Total Pages: {{usersResponse.total_pages}}</div>
-    <div>Users Shown: {{usersResponse.data.length}} of {{usersResponse.total}}</div>
-  </div>
-
-</fieldset>

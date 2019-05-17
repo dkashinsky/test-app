@@ -12,7 +12,6 @@ export class UserListComponent implements OnInit {
   constructor(private userService: UserService) { }
 
   usersResponse: ApiDataListResponse<UserInfo>;
-  pages: number[] = [];
 
   ngOnInit() {
     this.loadData(1);
@@ -21,10 +20,10 @@ export class UserListComponent implements OnInit {
   loadData(page: number = 1) {
     this.userService.getUsers(page).subscribe(apiResponse => {
       this.usersResponse = apiResponse;
-      this.pages = [];
-      for (var i = 0; i < apiResponse.total_pages; i++) {
-        this.pages.push(i + 1);
-      }
     });
+  }
+
+  pages(pagesCount: number) {
+    return new Array(pagesCount).fill(0).map((v, i) => i + 1);
   }
 }
