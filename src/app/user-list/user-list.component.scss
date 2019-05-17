@@ -1,4 +1,5 @@
 :host {
+
   .user-list {
     display: block;
     margin: 0 auto;
@@ -25,14 +26,14 @@
     }
   }
 
-  .paging{
+  .paging {
     padding: 5px;
     text-align: center;
 
-    button{
+    button {
       margin: 0 3px;
 
-      &.isActive{
+      &.isActive {
         border: 1px solid red;
       }
     }

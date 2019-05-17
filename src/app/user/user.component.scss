@@ -1,4 +1,8 @@
 :host {
+  display: block;
+  margin: 0 auto;
+  width: 600px;
+
   .user-info {
     &:after {
       display: block;
