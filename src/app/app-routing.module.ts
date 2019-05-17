@@ -5,11 +5,17 @@ import { UserComponent } from './user/user.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'users',
     component: UserListComponent
-  }, {
+  },
+  {
     path: 'user/:userId',
     component: UserComponent
+  },
+  {
+    path: '**',
+    redirectTo: 'users',
+    pathMatch: 'full'
   }
 ];
 
