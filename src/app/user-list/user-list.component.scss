@@ -1,0 +1,27 @@
+:host {
+  .user-list {
+    display: block;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  .user-list-item {
+    text-align: center;
+    margin: 5px 0;
+
+    a {
+      display: inline-block;
+      padding: 0;
+      color: black;
+
+      &:visited{
+        color: black;
+      }
+    }
+  }
+
+  .user-name {
+    display: inline-block;
+    padding: 5px;
+  }
+}

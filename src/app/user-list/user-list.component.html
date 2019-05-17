@@ -1,8 +1,15 @@
-<ul *ngIf="usersResponse">
-  <li *ngFor="let user of usersResponse.data">
-    <a href="#">{{user.first_name}}({{user.email}})</a>
-  </li>
-</ul>
+<div class="user-list-component">
+  <ul *ngIf="usersResponse" class="user-list">
+    <li *ngFor="let user of usersResponse.data" class="user-list-item">
+      <a href="#">
+        <span class="user-name">{{user.first_name }} {{user.last_name}}</span>
+        <span class="user-email">({{user.email}})</span>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
 
 <fieldset *ngIf="usersResponse">
   <legend>Pagination</legend>
