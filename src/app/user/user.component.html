@@ -1,7 +1,14 @@
-<fieldset *ngIf="user">
+<fieldset *ngIf="user" class="user-info">
   <legend>User Info:</legend>
 
-  <div class="left-column">
+  <div class="column">
+    <figure>
+      <figcaption>Avatar</figcaption>
+      <img [src]="user.avatar" />
+    </figure>
+  </div>
+
+  <div class="column">
     <div class="form-group">
       <label>Id:</label>
       <input type="text" [ngModel]="user.id" />
@@ -22,12 +29,4 @@
       <input type="text" [ngModel]="user.email" />
     </div>
   </div>
-
-  <div class="right-column">
-    <figure>
-      <figcaption>Avatar</figcaption>
-      <img [src]="user.avatar" />
-    </figure>
-  </div>
-
 </fieldset>
