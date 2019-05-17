@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import { UserInfo } from '../user.data';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-user',
@@ -11,16 +12,16 @@ export class UserComponent implements OnInit {
 
   user: UserInfo;
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.loadData();
   }
 
   loadData() {
-    const userId = 1; //TODO: get from route 
-    this.userService.getUser(userId).subscribe(user => {
-      this.user = user;
+    const userId = +this.route.snapshot.paramMap.get('userId');
+    this.userService.getUser(userId).subscribe(userResponse => {
+      this.user = userResponse.data;
     });
   }
 }

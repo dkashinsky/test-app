@@ -1,3 +1,33 @@
-<p>
-  user works!
-</p>
+<fieldset *ngIf="user">
+  <legend>User Info:</legend>
+
+  <div class="left-column">
+    <div class="form-group">
+      <label>Id:</label>
+      <input type="text" [ngModel]="user.id" />
+    </div>
+
+    <div class="form-group">
+      <label>First Name:</label>
+      <input type="text" [ngModel]="user.first_name" />
+    </div>
+
+    <div class="form-group">
+      <label>Last Name:</label>
+      <input type="text" [ngModel]="user.last_name" />
+    </div>
+
+    <div class="form-group">
+      <label>Email:</label>
+      <input type="text" [ngModel]="user.email" />
+    </div>
+  </div>
+
+  <div class="right-column">
+    <figure>
+      <figcaption>Avatar</figcaption>
+      <img [src]="user.avatar" />
+    </figure>
+  </div>
+
+</fieldset>

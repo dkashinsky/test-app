@@ -1,7 +1,7 @@
 <div class="user-list-component">
   <ul *ngIf="usersResponse" class="user-list">
     <li *ngFor="let user of usersResponse.data" class="user-list-item">
-      <a href="#">
+      <a [routerLink]="['/user', user.id]">
         <span class="user-name">{{user.first_name }} {{user.last_name}}</span>
         <span class="user-email">({{user.email}})</span>
       </a>

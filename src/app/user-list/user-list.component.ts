@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
-import { UserInfo, UserInfoApiResponse } from '../user.data';
+import { UserInfo, ApiDataListResponse } from '../user.data';
 
 @Component({
   selector: 'app-user-list',
@@ -11,7 +11,7 @@ export class UserListComponent implements OnInit {
 
   constructor(private userService: UserService) { }
 
-  usersResponse: UserInfoApiResponse;
+  usersResponse: ApiDataListResponse<UserInfo>;
   pages: number[] = [];
 
   ngOnInit() {
