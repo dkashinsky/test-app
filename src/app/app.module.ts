@@ -1,12 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { UserComponent } from './user/user.component';
+import { CachingInterceptor } from './interceptors/caching.interceptor';
+import { RequestCache } from './services/request-cache.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,10 @@ import { UserComponent } from './user/user.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    RequestCache,
+    { provide: HTTP_INTERCEPTORS, useClass: CachingInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
